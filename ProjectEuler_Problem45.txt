@@ -1,0 +1,91 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <fstream>
+#include <map>
+#include <iomanip>
+#include <sstream>
+#include <math.h>
+#include <set.h>
+using namespace std;
+
+
+
+int main() 
+{
+
+    std::set<unsigned long long> triset ;
+    std::set<unsigned long long  > pentset ;
+    std::set<unsigned long long  > hexset ;
+
+    for(unsigned long long i = 1; i<200000 ;++i)
+    {
+		unsigned long long  t = (i*(i+1))/2 ;
+		triset.insert(t);
+    }
+
+
+    for(unsigned long long i = 1; i<200000 ;++i)
+    {
+
+		unsigned long long  t = (i*(3*i -1))/2 ;
+		pentset.insert(t);
+
+    }
+
+    for( unsigned long long  i = 1; i<200000 ;++i)
+    {
+		unsigned long long  t = i*(2*i -1) ;
+		hexset.insert(t);
+
+    }
+
+    cout<<"\n set values are filled:";
+	
+
+	std::set<unsigned long long >::iterator titr =    
+     triset.begin();
+		
+     for( ; titr!=triset.end();++titr)
+	{
+
+	    unsigned long long t2 = *titr ;
+	    cout<<t2<<endl;
+
+	    std::set< unsigned long long >::iterator pitr =    
+         pentset.begin();
+	   std::set< unsigned long long >::iterator hitr =  
+         hexset.begin();
+		
+
+			
+				
+	    pitr = pentset.find(t2);
+	    if(pitr != pentset.end())
+	    {
+
+		   unsigned long long  t3 = *pitr; 
+		   hitr = hexset.find(t3);
+						
+             if(hitr != hexset.end())
+		  {
+				
+			cout<<t2;
+		     getchar();
+				
+		}
+
+
+
+
+	 }
+				
+     }
+
+    getchar();
+    getchar();
+    return 0;
+}

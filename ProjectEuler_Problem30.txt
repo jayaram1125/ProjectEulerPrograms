@@ -1,0 +1,92 @@
+
+Problem :
+
+Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
+
+1634 = 14 + 64 + 34 + 44
+8208 = 84 + 24 + 04 + 84
+9474 = 94 + 44 + 74 + 44
+As 1 = 14 is not a sum it is not included.
+
+The sum of these numbers is 1634 + 8208 + 9474 = 19316.
+
+Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
+
+Solution :
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <fstream>
+#include <map>
+#include <iomanip>
+#include <sstream>
+#include <math.h>
+using namespace std;
+
+
+
+
+bool isnum(unsigned long long i)
+{
+
+	unsigned long long ic = i ;
+
+	unsigned long long sum =  0 ;
+	while(ic>0)
+	{
+		
+		int rem = 0;
+		rem = ic%10;
+		ic = ic/10;
+		sum += (unsigned long long)pow((double)rem,5);
+
+	}
+
+	if(sum == i)
+	{
+
+		return true ;
+
+	}
+	else
+	{
+
+		return false ;
+	}
+
+
+}
+
+
+
+int main()
+{
+
+	unsigned long long  sum = 0;
+	unsigned long long i = 2 ;
+	for(;i<999999;++i)
+	{
+
+		if(isnum(i))
+		{
+			cout<<i<<endl;
+			sum+=i;
+	
+		}
+
+
+	}
+
+
+	cout<<"\n the sum  ="<<sum;
+	
+	getchar();
+	return 0; 
+}
+
+Answer:
+443839
